@@ -1,0 +1,41 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+.cache/
+
+# Build outputs
+dist/
+build/
+*.tsbuildinfo
+
+# Environment — NEVER commit secrets
+.env
+.env.*
+!.env.example
+
+# UI / design artifacts (excluded from this repo)
+artifacts/*/src/components/ui/
+artifacts/*/dist/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Test artefacts
+coverage/
+.nyc_output/
+
+# Local workspace state
+.local/
+.cache/
+
