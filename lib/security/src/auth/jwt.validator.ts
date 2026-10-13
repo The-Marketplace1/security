@@ -137,4 +137,4 @@ export function rotateRefreshToken(
   if (!result.valid) return null;
   blacklistToken(oldRefreshToken);
   return issueTokenPair({ ...fullPayload, sessionId: result.sessionId });
-
+}
