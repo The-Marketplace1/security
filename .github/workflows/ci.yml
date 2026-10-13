@@ -29,10 +29,9 @@ jobs:
           version: ${{ env.PNPM_VERSION }}
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v4.2.0
         with:
           node-version: ${{ env.NODE_VERSION }}
-         # cache: pnpm
 
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
@@ -55,10 +54,9 @@ jobs:
           version: ${{ env.PNPM_VERSION }}
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v4.2.0
         with:
           node-version: ${{ env.NODE_VERSION }}
-         # cache: pnpm
 
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
@@ -93,10 +91,9 @@ jobs:
           version: ${{ env.PNPM_VERSION }}
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v4.2.0
         with:
           node-version: ${{ env.NODE_VERSION }}
-       #   cache: pnpm
 
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
@@ -104,13 +101,15 @@ jobs:
       - name: Run security library tests
         run: pnpm --filter @workspace/security run test --if-present
 
-  # ── Lint ───────────────────────────────────────────────────────────────────
+  # ── Lint & Auto-Format ─────────────────────────────────────────────────────
   lint:
     name: Lint & Format
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v5
+        with:
+          ref: ${{ github.head_ref }} # Check out target branch to allow automated commits
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
@@ -118,13 +117,17 @@ jobs:
           version: ${{ env.PNPM_VERSION }}
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v4.2.0
         with:
           node-version: ${{ env.NODE_VERSION }}
-         # cache: pnpm
 
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
 
-      - name: Check formatting (Prettier)
-        run: pnpm exec prettier --check "**/*.{ts,json,yaml,md}" --ignore-path .gitignore
+      - name: Auto-format code codebase
+        run: pnpm exec prettier --write "**/*.{ts,json,yaml,md}" --ignore-path .gitignore
+
+      - name: Commit clean files back to repository
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "style: auto-format source files via Prettier"
