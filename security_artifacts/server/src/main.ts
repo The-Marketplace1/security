@@ -1,4 +1,4 @@
-mport app from "./server";
+import app from "./server";
 import { logger } from "./lib/pino.logger";
 
 const rawPort = process.env["PORT"] ?? "5000";
