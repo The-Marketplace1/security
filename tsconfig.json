@@ -1,14 +1,7 @@
 {
-  "extends": "./tsconfig.base.json",
-  "compileOnSave": false,
-  "files": [],
+  // ... rest of your tsconfig settings ...
   "references": [
-    {
-      "path": "./lib/db"
-    },
-    {
-      "path": "./lib/security"
-    }
+    { "path": "./lib/security_db" },
+    { "path": "./lib/security" }
   ]
 }
-
