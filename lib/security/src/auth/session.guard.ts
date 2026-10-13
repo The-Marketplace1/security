@@ -151,4 +151,3 @@ export function validateSessionBinding(
   }
   return { valid: true };
 }
-

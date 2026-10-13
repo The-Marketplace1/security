@@ -162,4 +162,3 @@ export class RBACError extends Error {
     this.permission = permission;
   }
 }
-

@@ -175,4 +175,3 @@ export function auditSuspiciousActivity(params: {
     metadata: params.metadata,
   });
 }
-

@@ -145,4 +145,3 @@ export function recordFailedCardAttempt(userId: string): void {
 export function clearFailedCardAttempts(userId: string): void {
   failedCardAttempts.delete(userId);
 }
-

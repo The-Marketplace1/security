@@ -298,4 +298,3 @@ export function applySecurityMiddleware(
   // Disable fingerprinting
   app.disable("x-powered-by");
 }
-

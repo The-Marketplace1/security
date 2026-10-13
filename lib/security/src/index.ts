@@ -165,4 +165,3 @@ export {
   applySecurityMiddleware,
 } from "./middleware/security.middleware.js";
 export type { CORSOptions } from "./middleware/security.middleware.js";
-

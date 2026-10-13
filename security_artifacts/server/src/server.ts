@@ -36,4 +36,3 @@ app.get("/", (_req, res) => {
 app.use("/api", router);
 
 export default app;
-

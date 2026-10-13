@@ -114,4 +114,3 @@ export function checkPaymentRateLimit(identifier: string): RateLimitResult {
     windowMs: 30 * 60 * 1000,
   });
 }
-

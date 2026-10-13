@@ -131,4 +131,3 @@ export function recordCancellation(userId: string): { blocked: boolean } {
 export function clearCancellations(userId: string): void {
   recentCancellations.delete(userId);
 }
-

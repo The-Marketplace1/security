@@ -67,4 +67,3 @@ export function loadSecurityConfig(): SecurityConfig {
 }
 
 export const securityConfig = loadSecurityConfig();
-
